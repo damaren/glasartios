@@ -12,14 +12,14 @@ import Foundation
 /// EquipmentAssociatedMessage View Protocol
 ///
 public protocol EquipmentAssociatedMessageView : class {
-    func show(something:String)
+    func show(equipment:Equipment?)
 }
 
 ///
 /// EquipmentAssociatedMessage Presenter Protocol
 ///
 public protocol EquipmentAssociatedMessageModule : class {
-    func doSomething()
+    func getEquipment()
 }
 
 ///
@@ -42,3 +42,5 @@ public protocol EquipmentAssociatedMessageOutput : class {
 public protocol EquipmentAssociatedMessageWireframe : class {
     func gotoSomeplace()
 }
+
+

@@ -11,6 +11,14 @@ import UIKit
 public class LoginViewController: UIViewController {
 
     fileprivate var presenter : LoginModule?
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var enterButton: UIButton!
+    @IBOutlet weak var verticalViewConstraint: NSLayoutConstraint!
+    
+    public override var canBecomeFirstResponder: Bool {
+        return true
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +40,33 @@ public class LoginViewController: UIViewController {
 
 	fileprivate func setup() {
         startObservers()
+        emailTextField.simplePlaceholderStyle()
+        passwordTextField.simplePlaceholderStyle()
+        enterButton.layer.cornerRadius = 3.0
+        enterButton.layer.masksToBounds = true
+        self.navigationController?.isNavigationBarHidden = true
 	}
     
     deinit {
         stopObservers()
     }
+    
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        becomeFirstResponder()
+    }
+    
+    @IBAction func confirmLogin(_ sender: Any) {
+        presenter?.login(email: emailTextField.text ?? "", password: passwordTextField.text ?? "")
+    }
+    
+    @IBAction func forgotPassword(_ sender: Any) {
+        presenter?.forgotPassword()
+    }
+
+    @IBAction func register(_ sender: Any) {
+        presenter?.register()
+    }
+    
 }
 
 // MARK: - View Delegate
@@ -63,9 +93,16 @@ extension LoginViewController {
     @objc func showKeyboard(notification:Notification) {
         if let frame = notification.userInfo?["UIKeyboardBoundsUserInfoKey"] as? NSValue {
             let finalFrame = frame.cgRectValue
-            let frameHeight = finalFrame.height
+            let offset:CGFloat = 50.0
+            let frameHeight = finalFrame.height - offset
             
             // Implement keyboard show behavior here
+            verticalViewConstraint.constant = -frameHeight
+            view.setNeedsUpdateConstraints()
+            
+            UIView.animate(withDuration: 0.2, animations: { [unowned self] in
+                self.view.layoutIfNeeded()
+            })
         }
     }
     
@@ -75,6 +112,12 @@ extension LoginViewController {
             let frameHeight = finalFrame.height
             
             // Implement keyboard hide behavior here
+            verticalViewConstraint.constant = 0.0
+            view.setNeedsUpdateConstraints()
+            
+            UIView.animate(withDuration: 0.2, animations: { [unowned self] in
+                self.view.layoutIfNeeded()
+            })
         }
     }
 }

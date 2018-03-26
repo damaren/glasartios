@@ -14,14 +14,9 @@ public class EquipmentAssociatedMessageConfigurator {
     
     public func create() -> EquipmentAssociatedMessageViewController {
         
-//        Use this implementation
-//        guard let viewController = StoryboardIdentifier.authentication.storyboard?.instantiateViewController(withIdentifier: "EquipmentAssociatedMessageViewController") as? EquipmentAssociatedMessageViewController else {
-//            return
-//        }
-//        
-//        OR
-//        User this another one
-        let viewController = EquipmentAssociatedMessageViewController()
+        guard let viewController = StoryboardIdentifier.deviceManager.storyboard?.instantiateViewController(withIdentifier: "EquipmentAssociatedMessageViewController") as? EquipmentAssociatedMessageViewController else {
+            fatalError()
+        }
 
         let presenter = EquipmentAssociatedMessagePresenter()
         let router = EquipmentAssociatedMessageRouter()

@@ -14,14 +14,11 @@ public class LoginConfigurator {
     
     public func create() -> LoginViewController {
         
-//        Use this implementation
-//        guard let viewController = StoryboardIdentifier.authentication.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else {
-//            return
-//        }
-//        
-//        OR
-//        User this another one
-        let viewController = LoginViewController()
+
+        guard let viewController = StoryboardIdentifier.authentication.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else {
+            fatalError()
+        }
+
 
         let presenter = LoginPresenter()
         let router = LoginRouter()
@@ -33,6 +30,12 @@ public class LoginConfigurator {
         router.inject(viewController: viewController)
         
         return viewController
+    }
+    
+    public func createNavigation() -> UINavigationController {
+        let viewController = create()
+        let navigation = UINavigationController(rootViewController: viewController)
+        return navigation
     }
     
 }

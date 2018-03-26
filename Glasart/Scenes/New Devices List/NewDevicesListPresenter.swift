@@ -32,16 +32,26 @@ public class NewDevicesListPresenter {
 
 // MARK: - Presenter Delegates
 extension NewDevicesListPresenter : NewDevicesListModule {
-    public func doSomething() {
-        assertDependencies()
-        //Implements presenter actions here
+    public func gotoTeste() {
+        router?.gotoTeste()
+    }
+    
+    public func gotoModelSelection(to equipment:Equipment) {
+        router?.gotoModelSelection(to: equipment)
+    }
+    
+    public func getEquipments() {
+        NSLog("Presenter - Buscando equipamentos")
+        interactor?.getEquipments()
     }
 }
 
 // MARK: - Output Interactor Delegate
 extension NewDevicesListPresenter : NewDevicesListOutput {
-    public func fetch(something: String) {
+    public func fetch(equipments:[Equipment]) {
         assertDependencies()
+        NSLog("Presenter (output) - Equipamentos recebidos")
         //Handle fetched data here
+        view?.show(equipments:equipments)
     }
 }

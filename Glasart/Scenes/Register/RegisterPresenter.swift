@@ -27,7 +27,6 @@ public class RegisterPresenter {
         assert(interactor != nil, "No interactor defined in presenter")
         assert(router != nil, "No router defined in presenter")
     }
-    
 }
 
 // MARK: - Presenter Delegates
@@ -35,6 +34,10 @@ extension RegisterPresenter : RegisterModule {
     public func doSomething() {
         assertDependencies()
         //Implements presenter actions here
+    }
+    
+    public func alreadyRegistered() {
+        router?.gotoLogin()
     }
 }
 

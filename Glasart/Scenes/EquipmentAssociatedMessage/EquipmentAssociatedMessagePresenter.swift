@@ -14,7 +14,20 @@ public class EquipmentAssociatedMessagePresenter {
     fileprivate var interactor  : EquipmentAssociatedMessageInput?
     fileprivate var router      : EquipmentAssociatedMessageWireframe?
     
-    public init() {}
+    public var equipment:Equipment?
+    
+    private func mock() {
+        var equipment:Equipment = Equipment()
+        equipment.description = ""
+        equipment.name = ""
+        let info = EquipmentInfo(width: 450, height: 450, power: 418)
+        equipment.info = info
+        self.equipment = equipment
+    }
+    
+    public init() {
+        mock()
+    }
     
     public func inject(view: EquipmentAssociatedMessageView?, interactor:EquipmentAssociatedMessageInput?, router:EquipmentAssociatedMessageWireframe?) {
         self.view = view
@@ -32,9 +45,10 @@ public class EquipmentAssociatedMessagePresenter {
 
 // MARK: - Presenter Delegates
 extension EquipmentAssociatedMessagePresenter : EquipmentAssociatedMessageModule {
-    public func doSomething() {
+    public func getEquipment() {
         assertDependencies()
         //Implements presenter actions here
+        view?.show(equipment: self.equipment)
     }
 }
 

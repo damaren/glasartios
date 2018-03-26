@@ -20,6 +20,9 @@ public protocol LoginView : class {
 ///
 public protocol LoginModule : class {
     func doSomething()
+    func login(email:String, password:String)
+    func forgotPassword()
+    func register()
 }
 
 ///
@@ -41,4 +44,6 @@ public protocol LoginOutput : class {
 ///
 public protocol LoginWireframe : class {
     func gotoSomeplace()
+    func gotoRegister()
+    func gotoInsideApp()
 }

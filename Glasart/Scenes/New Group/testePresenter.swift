@@ -14,6 +14,8 @@ public class testePresenter {
     fileprivate var interactor  : testeInput?
     fileprivate var router      : testeWireframe?
     
+    var myInt : Int = 0
+    
     public init() {}
     
     public func inject(view: testeView?, interactor:testeInput?, router:testeWireframe?) {
@@ -32,6 +34,11 @@ public class testePresenter {
 
 // MARK: - Presenter Delegates
 extension testePresenter : testeModule {
+    public func addNumber() {
+        myInt += 1
+        view?.show(number: myInt)
+    }
+    
     public func doSomething() {
         assertDependencies()
         //Implements presenter actions here

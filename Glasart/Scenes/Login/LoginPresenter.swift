@@ -36,6 +36,20 @@ extension LoginPresenter : LoginModule {
         assertDependencies()
         //Implements presenter actions here
     }
+    
+    public func login(email: String, password: String) {
+        if (email == "admin" && password == "admin") {
+            router?.gotoInsideApp()
+        }
+    }
+    
+    public func forgotPassword() {
+        
+    }
+    
+    public func register() {
+        router?.gotoRegister()
+    }
 }
 
 // MARK: - Output Interactor Delegate

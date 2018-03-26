@@ -10,6 +10,8 @@ import UIKit
 
 public class testeViewController: UIViewController {
 
+    @IBOutlet weak var labelNumber : UILabel!
+    
     fileprivate var presenter : testeModule?
     
     public override func viewDidLoad() {
@@ -37,17 +39,28 @@ public class testeViewController: UIViewController {
     deinit {
         stopObservers()
     }
+    
+    
+}
+
+extension testeViewController {
+    @IBAction func adicionar() {
+        print("apertei")
+        presenter?.addNumber()
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 // MARK: - View Delegate
 extension testeViewController : testeView {
-    public func hide() {
-        <#code#>
+    public func show(number: Int) {
+        let text = "Numero \(number)"
+        labelNumber.text = text
     }
     
-    public func show(something: String) {
-        //Implement what to show here
+    public func hide() {
     }
+    
 }
 
 // MARK: - Configurations

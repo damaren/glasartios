@@ -10,12 +10,21 @@ import UIKit
 
 class ModelSelectionCell: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    var equipment:EquipmentInfo? = nil {
+        didSet {
+            update()
+        }
     }
-    */
-
+    
+    @IBOutlet weak var modelTitleLabel: UILabel!
+    
+    @IBOutlet weak var modelDescriptionLabel: UILabel!
+    
+    func update() {
+        let text = "\(equipment?.width ?? 0) x \(equipment?.height ?? 0)"
+        modelTitleLabel.text = text
+        let text2 = "POTÊNCIA \(equipment?.power ?? 0) W"
+        modelDescriptionLabel.text = text2
+    }
+    
 }

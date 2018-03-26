@@ -10,7 +10,306 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="bodoni_book_bt.ttf">
+            <string>BodoniBT-Book</string>
+        </array>
+    </customFonts>
     <scenes>
+        <!--Register View Controller-->
+        <scene sceneID="a0o-Vq-oMu">
+            <objects>
+                <viewController storyboardIdentifier="RegisterViewController" id="Bvq-DC-XMo" customClass="RegisterViewController" customModule="Glasart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dcQ-lc-9aI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Qy-wl-d4O">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cadastro_background" translatesAutoresizingMaskIntoConstraints="NO" id="OAw-4C-E5W">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A99-dd-wax">
+                                        <rect key="frame" x="74" y="617" width="226" height="30"/>
+                                        <state key="normal" title="já possui uma conta? clique aqui.">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="alreadyRegistered:" destination="Bvq-DC-XMo" eventType="touchUpInside" id="V4t-ap-KTa"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rwe-au-Eht">
+                                        <rect key="frame" x="30" y="122" width="315" height="366"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vjI-I9-2VK">
+                                                <rect key="frame" x="0.0" y="0.0" width="315" height="36"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="nome" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Wh-aG-BlW">
+                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="xBS-54-OAW"/>
+                                                        </constraints>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="BodoniBT-Book" family="Bodoni Book BT" pointSize="20"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                    </textField>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XC1-Xx-A3m">
+                                                        <rect key="frame" x="0.0" y="35" width="315" height="1"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="sZa-2I-ASg"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="XC1-Xx-A3m" firstAttribute="leading" secondItem="vjI-I9-2VK" secondAttribute="leading" id="1mS-TG-QYx"/>
+                                                    <constraint firstItem="2Wh-aG-BlW" firstAttribute="leading" secondItem="vjI-I9-2VK" secondAttribute="leading" id="7oe-c6-0Op"/>
+                                                    <constraint firstAttribute="trailing" secondItem="XC1-Xx-A3m" secondAttribute="trailing" id="EXh-I3-q3X"/>
+                                                    <constraint firstAttribute="bottom" secondItem="2Wh-aG-BlW" secondAttribute="bottom" constant="6" id="EaD-Bi-FZ8"/>
+                                                    <constraint firstItem="2Wh-aG-BlW" firstAttribute="top" secondItem="vjI-I9-2VK" secondAttribute="top" id="GM4-dx-XYI"/>
+                                                    <constraint firstAttribute="bottom" secondItem="XC1-Xx-A3m" secondAttribute="bottom" id="S0E-yh-ubK"/>
+                                                    <constraint firstAttribute="trailing" secondItem="2Wh-aG-BlW" secondAttribute="trailing" id="ywn-iz-7HV"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oMR-Lt-FRA">
+                                                <rect key="frame" x="0.0" y="66" width="315" height="36"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ELC-Cf-Rfu">
+                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="F0B-c8-e5W"/>
+                                                        </constraints>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="BodoniBT-Book" family="Bodoni Book BT" pointSize="20"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                                    </textField>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7u-6N-bpD">
+                                                        <rect key="frame" x="0.0" y="35" width="315" height="1"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="Tp3-5P-LsR"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="m7u-6N-bpD" secondAttribute="bottom" id="6Rk-GP-OND"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ELC-Cf-Rfu" secondAttribute="bottom" constant="6" id="74u-lQ-THb"/>
+                                                    <constraint firstItem="m7u-6N-bpD" firstAttribute="leading" secondItem="oMR-Lt-FRA" secondAttribute="leading" id="FTy-wC-uNO"/>
+                                                    <constraint firstItem="ELC-Cf-Rfu" firstAttribute="leading" secondItem="oMR-Lt-FRA" secondAttribute="leading" id="ewx-z7-hfg"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ELC-Cf-Rfu" secondAttribute="trailing" id="taQ-sv-SpY"/>
+                                                    <constraint firstAttribute="trailing" secondItem="m7u-6N-bpD" secondAttribute="trailing" id="vzZ-Ue-QP9"/>
+                                                    <constraint firstItem="ELC-Cf-Rfu" firstAttribute="top" secondItem="oMR-Lt-FRA" secondAttribute="top" id="wmM-86-eWi"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMs-x1-eVX">
+                                                <rect key="frame" x="0.0" y="132" width="315" height="36"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="telefone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9bA-li-kWN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="e1W-Yi-j8c"/>
+                                                        </constraints>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="BodoniBT-Book" family="Bodoni Book BT" pointSize="20"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
+                                                    </textField>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsh-Iv-rhE">
+                                                        <rect key="frame" x="0.0" y="35" width="315" height="1"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="gel-Az-73i"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="9bA-li-kWN" firstAttribute="top" secondItem="UMs-x1-eVX" secondAttribute="top" id="25h-c6-ll8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="9bA-li-kWN" secondAttribute="trailing" id="2YZ-OG-EX7"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Nsh-Iv-rhE" secondAttribute="bottom" id="WXU-Dr-ohr"/>
+                                                    <constraint firstItem="9bA-li-kWN" firstAttribute="leading" secondItem="UMs-x1-eVX" secondAttribute="leading" id="biI-4M-NhC"/>
+                                                    <constraint firstItem="Nsh-Iv-rhE" firstAttribute="leading" secondItem="UMs-x1-eVX" secondAttribute="leading" id="hH6-wt-bU7"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Nsh-Iv-rhE" secondAttribute="trailing" id="hUb-d3-UnC"/>
+                                                    <constraint firstAttribute="bottom" secondItem="9bA-li-kWN" secondAttribute="bottom" constant="6" id="jin-cC-jT1"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFk-vx-OjO">
+                                                <rect key="frame" x="0.0" y="198" width="315" height="36"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="razão social" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A6Q-tv-gE5">
+                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="Sdh-lV-JQf"/>
+                                                        </constraints>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="BodoniBT-Book" family="Bodoni Book BT" pointSize="20"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                    </textField>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rV-MH-qWF">
+                                                        <rect key="frame" x="0.0" y="35" width="315" height="1"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="1dr-6W-nHE"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="A6Q-tv-gE5" secondAttribute="trailing" id="84f-Ft-0rh"/>
+                                                    <constraint firstAttribute="bottom" secondItem="A6Q-tv-gE5" secondAttribute="bottom" constant="6" id="Bjg-Uj-hpr"/>
+                                                    <constraint firstItem="A6Q-tv-gE5" firstAttribute="top" secondItem="NFk-vx-OjO" secondAttribute="top" id="Mxo-SJ-v2E"/>
+                                                    <constraint firstItem="A6Q-tv-gE5" firstAttribute="leading" secondItem="NFk-vx-OjO" secondAttribute="leading" id="g3W-vZ-oeq"/>
+                                                    <constraint firstItem="4rV-MH-qWF" firstAttribute="leading" secondItem="NFk-vx-OjO" secondAttribute="leading" id="mIB-IE-ytK"/>
+                                                    <constraint firstAttribute="trailing" secondItem="4rV-MH-qWF" secondAttribute="trailing" id="qVX-xl-tSt"/>
+                                                    <constraint firstAttribute="bottom" secondItem="4rV-MH-qWF" secondAttribute="bottom" id="wT3-OH-zuf"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bp-kF-SBa">
+                                                <rect key="frame" x="0.0" y="264" width="315" height="36"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="cnpj" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uwC-jt-vFh">
+                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="03o-XR-xog"/>
+                                                        </constraints>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="BodoniBT-Book" family="Bodoni Book BT" pointSize="20"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                    </textField>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1bZ-r7-jwi">
+                                                        <rect key="frame" x="0.0" y="35" width="315" height="1"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="bLU-mA-uAb"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="uwC-jt-vFh" secondAttribute="trailing" id="2yT-hi-iRn"/>
+                                                    <constraint firstAttribute="bottom" secondItem="uwC-jt-vFh" secondAttribute="bottom" constant="6" id="PxR-UE-T98"/>
+                                                    <constraint firstItem="uwC-jt-vFh" firstAttribute="leading" secondItem="3bp-kF-SBa" secondAttribute="leading" id="SLp-I7-T8N"/>
+                                                    <constraint firstItem="1bZ-r7-jwi" firstAttribute="leading" secondItem="3bp-kF-SBa" secondAttribute="leading" id="Uwm-S8-kSL"/>
+                                                    <constraint firstItem="uwC-jt-vFh" firstAttribute="top" secondItem="3bp-kF-SBa" secondAttribute="top" id="aF8-l0-rCp"/>
+                                                    <constraint firstAttribute="trailing" secondItem="1bZ-r7-jwi" secondAttribute="trailing" id="nrZ-aq-BqE"/>
+                                                    <constraint firstAttribute="bottom" secondItem="1bZ-r7-jwi" secondAttribute="bottom" id="vvJ-2O-3gd"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xv-Qm-xmA">
+                                                <rect key="frame" x="0.0" y="330" width="315" height="36"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B1U-aI-iw0">
+                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="Hsg-sG-zBj"/>
+                                                        </constraints>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="BodoniBT-Book" family="Bodoni Book BT" pointSize="20"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                    </textField>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jbf-tA-h3k">
+                                                        <rect key="frame" x="0.0" y="35" width="315" height="1"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="e0d-pr-Jd5"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="Jbf-tA-h3k" secondAttribute="trailing" id="9yX-Tl-ybf"/>
+                                                    <constraint firstItem="B1U-aI-iw0" firstAttribute="top" secondItem="8xv-Qm-xmA" secondAttribute="top" id="GAt-GR-oVT"/>
+                                                    <constraint firstAttribute="trailing" secondItem="B1U-aI-iw0" secondAttribute="trailing" id="MGh-1s-PKc"/>
+                                                    <constraint firstItem="B1U-aI-iw0" firstAttribute="leading" secondItem="8xv-Qm-xmA" secondAttribute="leading" id="PiV-VF-4VZ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Jbf-tA-h3k" secondAttribute="bottom" id="daa-6j-KHO"/>
+                                                    <constraint firstAttribute="bottom" secondItem="B1U-aI-iw0" secondAttribute="bottom" constant="6" id="gvJ-54-Ct7"/>
+                                                    <constraint firstItem="Jbf-tA-h3k" firstAttribute="leading" secondItem="8xv-Qm-xmA" secondAttribute="leading" id="sOB-7W-L0M"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="8xv-Qm-xmA" firstAttribute="top" secondItem="3bp-kF-SBa" secondAttribute="bottom" constant="30" id="AuD-B9-BOo"/>
+                                            <constraint firstAttribute="trailing" secondItem="8xv-Qm-xmA" secondAttribute="trailing" id="BXj-bw-R1G"/>
+                                            <constraint firstAttribute="trailing" secondItem="oMR-Lt-FRA" secondAttribute="trailing" id="EmG-Ci-hfP"/>
+                                            <constraint firstAttribute="trailing" secondItem="vjI-I9-2VK" secondAttribute="trailing" id="IH2-eG-Hh6"/>
+                                            <constraint firstItem="vjI-I9-2VK" firstAttribute="leading" secondItem="rwe-au-Eht" secondAttribute="leading" id="Inf-JT-eui"/>
+                                            <constraint firstItem="8xv-Qm-xmA" firstAttribute="leading" secondItem="rwe-au-Eht" secondAttribute="leading" id="J9J-nf-qic"/>
+                                            <constraint firstAttribute="trailing" secondItem="3bp-kF-SBa" secondAttribute="trailing" id="Q1X-Qu-X7X"/>
+                                            <constraint firstItem="3bp-kF-SBa" firstAttribute="leading" secondItem="rwe-au-Eht" secondAttribute="leading" id="UkY-tD-vcb"/>
+                                            <constraint firstItem="UMs-x1-eVX" firstAttribute="leading" secondItem="rwe-au-Eht" secondAttribute="leading" id="Utx-sp-TTV"/>
+                                            <constraint firstItem="3bp-kF-SBa" firstAttribute="top" secondItem="NFk-vx-OjO" secondAttribute="bottom" constant="30" id="Uzg-7o-QKy"/>
+                                            <constraint firstAttribute="trailing" secondItem="UMs-x1-eVX" secondAttribute="trailing" id="b9r-4V-XsL"/>
+                                            <constraint firstItem="oMR-Lt-FRA" firstAttribute="leading" secondItem="rwe-au-Eht" secondAttribute="leading" id="cUz-1W-tIF"/>
+                                            <constraint firstAttribute="trailing" secondItem="NFk-vx-OjO" secondAttribute="trailing" id="fSu-LY-ruV"/>
+                                            <constraint firstAttribute="bottom" secondItem="8xv-Qm-xmA" secondAttribute="bottom" id="ilC-gs-Apc"/>
+                                            <constraint firstItem="UMs-x1-eVX" firstAttribute="top" secondItem="oMR-Lt-FRA" secondAttribute="bottom" constant="30" id="kMZ-1h-E2e"/>
+                                            <constraint firstItem="vjI-I9-2VK" firstAttribute="top" secondItem="rwe-au-Eht" secondAttribute="top" id="pAF-7f-VDH"/>
+                                            <constraint firstItem="NFk-vx-OjO" firstAttribute="leading" secondItem="rwe-au-Eht" secondAttribute="leading" id="tFB-Po-ZUE"/>
+                                            <constraint firstItem="NFk-vx-OjO" firstAttribute="top" secondItem="UMs-x1-eVX" secondAttribute="bottom" constant="30" id="v6N-gg-Nx7"/>
+                                            <constraint firstItem="oMR-Lt-FRA" firstAttribute="top" secondItem="vjI-I9-2VK" secondAttribute="bottom" constant="30" id="vqr-6N-Rxu"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1CQ-LT-CYC">
+                                        <rect key="frame" x="30" y="543" width="315" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="0Nr-Qn-pU9"/>
+                                        </constraints>
+                                        <state key="normal" title="crie sua conta">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="OAw-4C-E5W" secondAttribute="trailing" id="4Ia-Ox-6mb"/>
+                                    <constraint firstAttribute="trailing" secondItem="1CQ-LT-CYC" secondAttribute="trailing" constant="30" id="4mj-0b-0ew"/>
+                                    <constraint firstAttribute="bottom" secondItem="A99-dd-wax" secondAttribute="bottom" constant="20" id="Bzc-L4-dce"/>
+                                    <constraint firstItem="OAw-4C-E5W" firstAttribute="leading" secondItem="9Qy-wl-d4O" secondAttribute="leading" id="QoO-Cg-1ON"/>
+                                    <constraint firstItem="1CQ-LT-CYC" firstAttribute="leading" secondItem="9Qy-wl-d4O" secondAttribute="leading" constant="30" id="Rhz-pw-fRI"/>
+                                    <constraint firstItem="A99-dd-wax" firstAttribute="top" secondItem="1CQ-LT-CYC" secondAttribute="bottom" constant="30" id="Yxd-9o-rr2"/>
+                                    <constraint firstAttribute="trailing" secondItem="rwe-au-Eht" secondAttribute="trailing" constant="30" id="Z6T-7h-ja3"/>
+                                    <constraint firstItem="1CQ-LT-CYC" firstAttribute="top" secondItem="rwe-au-Eht" secondAttribute="bottom" constant="55" id="bNn-tc-Z4b"/>
+                                    <constraint firstAttribute="bottom" secondItem="OAw-4C-E5W" secondAttribute="bottom" id="d3a-o3-3Rf"/>
+                                    <constraint firstItem="A99-dd-wax" firstAttribute="centerX" secondItem="9Qy-wl-d4O" secondAttribute="centerX" id="uKj-rv-DR3"/>
+                                    <constraint firstItem="rwe-au-Eht" firstAttribute="leading" secondItem="9Qy-wl-d4O" secondAttribute="leading" constant="30" id="wKU-dN-5my"/>
+                                    <constraint firstItem="OAw-4C-E5W" firstAttribute="top" secondItem="9Qy-wl-d4O" secondAttribute="top" id="ye6-Ly-5b4"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mLl-Nf-dq3" firstAttribute="trailing" secondItem="9Qy-wl-d4O" secondAttribute="trailing" id="KDa-Ui-CE2"/>
+                            <constraint firstItem="mLl-Nf-dq3" firstAttribute="bottom" secondItem="9Qy-wl-d4O" secondAttribute="bottom" id="M8i-uY-Flh"/>
+                            <constraint firstItem="9Qy-wl-d4O" firstAttribute="leading" secondItem="mLl-Nf-dq3" secondAttribute="leading" id="gLf-dp-hgF"/>
+                            <constraint firstItem="9Qy-wl-d4O" firstAttribute="top" secondItem="mLl-Nf-dq3" secondAttribute="top" constant="-20" id="rPB-eP-NWT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mLl-Nf-dq3"/>
+                    </view>
+                    <connections>
+                        <outlet property="cnpjTextField" destination="uwC-jt-vFh" id="nTG-aC-o3X"/>
+                        <outlet property="confirmCreationButton" destination="1CQ-LT-CYC" id="tDo-QH-KdA"/>
+                        <outlet property="emailTextField" destination="ELC-Cf-Rfu" id="NDs-PF-4NZ"/>
+                        <outlet property="nameTextField" destination="2Wh-aG-BlW" id="8Mf-0Y-fkm"/>
+                        <outlet property="passwordTextField" destination="B1U-aI-iw0" id="j1u-or-hoq"/>
+                        <outlet property="phoneTextField" destination="9bA-li-kWN" id="wPg-nj-qmW"/>
+                        <outlet property="razaoSocialTextField" destination="A6Q-tv-gE5" id="ofP-f1-ZJN"/>
+                        <outlet property="verticalViewConstraint" destination="bNn-tc-Z4b" id="cRe-S3-7Gf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8c2-q1-Mgs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1700" y="158.77061469265368"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="eL1-mW-q88">
             <objects>
@@ -59,9 +358,12 @@
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="endereço e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c4F-Qc-0na">
                                                         <rect key="frame" x="46" y="0.0" width="269" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="Ij1-Ui-GFG"/>
+                                                        </constraints>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <fontDescription key="fontDescription" name="BodoniBT-Book" family="Bodoni Book BT" pointSize="20"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -97,9 +399,12 @@
                                                     </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sw2-6d-wUH">
                                                         <rect key="frame" x="46" y="0.0" width="269" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="s1O-lu-TG1"/>
+                                                        </constraints>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <fontDescription key="fontDescription" name="BodoniBT-Book" family="Bodoni Book BT" pointSize="20"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -194,6 +499,7 @@
                         <outlet property="emailTextField" destination="c4F-Qc-0na" id="n97-xi-6l7"/>
                         <outlet property="enterButton" destination="myO-6d-Sf4" id="tJB-p5-o0d"/>
                         <outlet property="passwordTextField" destination="sw2-6d-wUH" id="UL3-cq-dXt"/>
+                        <outlet property="verticalViewConstraint" destination="qaK-yF-bSD" id="HLe-dZ-F9f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wsV-F3-Mvb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -237,6 +543,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cadastro_background" width="722" height="1273"/>
         <image name="login_background" width="722" height="1292"/>
     </resources>
 </document>

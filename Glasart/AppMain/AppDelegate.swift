@@ -11,11 +11,17 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let bounds = UIScreen.main.bounds
+        window = UIWindow(frame: bounds)
+        
+        guard let windowReference = window else { return false }
+        AppMainRouter.instance.gotoInsideApp(using: windowReference)
+        
         return true
     }
 

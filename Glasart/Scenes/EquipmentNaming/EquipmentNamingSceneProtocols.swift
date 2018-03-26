@@ -13,6 +13,8 @@ import Foundation
 ///
 public protocol EquipmentNamingView : class {
     func show(something:String)
+    var isTextFieldHidden:Bool {get set}
+    func showAssociatedEquipment()
 }
 
 ///
@@ -20,6 +22,8 @@ public protocol EquipmentNamingView : class {
 ///
 public protocol EquipmentNamingModule : class {
     func doSomething()
+    func equipmentName(_ name:String)
+    func registerName()
 }
 
 ///

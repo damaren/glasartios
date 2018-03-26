@@ -20,6 +20,7 @@ public protocol RegisterView : class {
 ///
 public protocol RegisterModule : class {
     func doSomething()
+    func alreadyRegistered()
 }
 
 ///
@@ -41,4 +42,5 @@ public protocol RegisterOutput : class {
 ///
 public protocol RegisterWireframe : class {
     func gotoSomeplace()
+    func gotoLogin()
 }

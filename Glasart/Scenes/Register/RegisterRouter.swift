@@ -33,4 +33,7 @@ extension RegisterRouter : RegisterWireframe {
     public func gotoSomeplace() {
         //Implement the route here
     }
+    public func gotoLogin() {
+        viewController?.navigationController?.popViewController(animated: true)
+    }
 }

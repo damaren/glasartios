@@ -14,14 +14,11 @@ public class RegisterConfigurator {
     
     public func create() -> RegisterViewController {
         
-//        Use this implementation
-//        guard let viewController = StoryboardIdentifier.authentication.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as? RegisterViewController else {
-//            return
-//        }
-//        
-//        OR
-//        User this another one
-        let viewController = RegisterViewController()
+
+        guard let viewController = StoryboardIdentifier.authentication.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as? RegisterViewController else {
+            fatalError()
+        }
+
 
         let presenter = RegisterPresenter()
         let router = RegisterRouter()

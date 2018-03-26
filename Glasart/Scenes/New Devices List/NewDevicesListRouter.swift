@@ -30,7 +30,17 @@ public class NewDevicesListRouter {
 
 // MARK: - Wireframe Delegate
 extension NewDevicesListRouter : NewDevicesListWireframe {
-    public func gotoSomeplace() {
+    public func gotoTeste() {
         //Implement the route here
+        let testeScreen = testeConfigurator().create()
+        //viewController?.present(testeScreen, animated: true, completion: nil)
+        viewController?.navigationController?.pushViewController(testeScreen, animated: true)
     }
+    
+    public func gotoModelSelection(to equipment:Equipment) {
+        //Implement the route here
+        let destination = ModelSelectionConfigurator().create()
+        viewController?.navigationController?.pushViewController(destination, animated: true)
+    }
+    
 }

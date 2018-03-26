@@ -19,7 +19,7 @@ public protocol ModelSelectionView : class {
 /// ModelSelection Presenter Protocol
 ///
 public protocol ModelSelectionModule : class {
-    func doSomething()
+    var equipmentsInfo:[EquipmentInfo] { get }
 }
 
 ///

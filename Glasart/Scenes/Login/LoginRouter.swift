@@ -33,4 +33,17 @@ extension LoginRouter : LoginWireframe {
     public func gotoSomeplace() {
         //Implement the route here
     }
+    
+    public func gotoRegister() {
+        let destination = RegisterConfigurator().create()
+        viewController?.navigationController?.pushViewController(destination, animated: true)
+    }
+    
+    public func gotoInsideApp() {
+        DispatchQueue.main.async {
+            guard let destination = try? NewDevicesListConfigurator().createNavigator() else { return }
+            UIApplication.shared.keyWindow?.rootViewController = destination
+            UIApplication.shared.keyWindow?.makeKeyAndVisible()
+        }
+    }
 }

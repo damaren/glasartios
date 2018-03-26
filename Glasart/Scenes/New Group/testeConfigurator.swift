@@ -14,14 +14,10 @@ public class testeConfigurator {
     
     public func create() -> testeViewController {
         
-//        Use this implementation
-//        guard let viewController = StoryboardIdentifier.authentication.storyboard?.instantiateViewController(withIdentifier: "testeViewController") as? testeViewController else {
-//            return
-//        }
-//        
-//        OR
-//        User this another one
-        let viewController = testeViewController()
+
+        guard let viewController = StoryboardIdentifier.authentication.storyboard?.instantiateViewController(withIdentifier: "testeViewController") as? testeViewController else {
+            fatalError("ERRO")
+        }
 
         let presenter = testePresenter()
         let router = testeRouter()

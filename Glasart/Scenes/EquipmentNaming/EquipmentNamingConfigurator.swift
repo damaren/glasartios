@@ -12,18 +12,13 @@ public class EquipmentNamingConfigurator {
     
     public init() {}
     
-    public func create() -> EquipmentNamingViewController {
+    public func create(equipment:Equipment?) -> EquipmentNamingViewController {
         
-//        Use this implementation
-//        guard let viewController = StoryboardIdentifier.authentication.storyboard?.instantiateViewController(withIdentifier: "EquipmentNamingViewController") as? EquipmentNamingViewController else {
-//            return
-//        }
-//        
-//        OR
-//        User this another one
-        let viewController = EquipmentNamingViewController()
+        guard let viewController = StoryboardIdentifier.deviceManager.storyboard?.instantiateViewController(withIdentifier: "EquipmentNamingViewController") as? EquipmentNamingViewController else {
+            fatalError()
+        }
 
-        let presenter = EquipmentNamingPresenter()
+        let presenter = EquipmentNamingPresenter(equipment: equipment)
         let router = EquipmentNamingRouter()
         let interactor = EquipmentNamingInputInteractor()
         

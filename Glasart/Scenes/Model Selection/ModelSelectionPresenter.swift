@@ -32,9 +32,11 @@ public class ModelSelectionPresenter {
 
 // MARK: - Presenter Delegates
 extension ModelSelectionPresenter : ModelSelectionModule {
-    public func doSomething() {
-        assertDependencies()
-        //Implements presenter actions here
+    public var equipmentsInfo:[EquipmentInfo] {
+        var list:[EquipmentInfo] = []
+        list.append(EquipmentInfo(width: 450, height: 450, power: 418))
+        list.append(EquipmentInfo(width: 600, height: 400, power: 777))
+        return list
     }
 }
 

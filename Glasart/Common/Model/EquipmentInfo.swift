@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+public struct EquipmentInfo {
+    var width:Int?
+    var height:Int?
+    var power:Int?
+}

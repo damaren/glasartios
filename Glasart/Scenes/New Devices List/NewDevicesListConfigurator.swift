@@ -14,14 +14,9 @@ public class NewDevicesListConfigurator {
     
     public func create() -> NewDevicesListViewController {
         
-//        Use this implementation
-//        guard let viewController = StoryboardIdentifier.authentication.storyboard?.instantiateViewController(withIdentifier: "NewDevicesListViewController") as? NewDevicesListViewController else {
-//            return
-//        }
-//        
-//        OR
-//        User this another one
-        let viewController = NewDevicesListViewController()
+        guard let viewController = StoryboardIdentifier.deviceManager.storyboard?.instantiateViewController(withIdentifier: "NewDevicesListViewController") as? NewDevicesListViewController else {
+            fatalError("Not able to find Storyboard for Device Manager")
+        }
 
         let presenter = NewDevicesListPresenter()
         let router = NewDevicesListRouter()
@@ -33,6 +28,12 @@ public class NewDevicesListConfigurator {
         router.inject(viewController: viewController)
         
         return viewController
+    }
+    
+    public func createNavigator() -> UINavigationController {
+        let viewController = self.create()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        return navigationController
     }
     
 }

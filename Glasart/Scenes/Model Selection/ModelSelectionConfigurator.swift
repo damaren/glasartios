@@ -14,14 +14,9 @@ public class ModelSelectionConfigurator {
     
     public func create() -> ModelSelectionViewController {
         
-//        Use this implementation
-//        guard let viewController = StoryboardIdentifier.authentication.storyboard?.instantiateViewController(withIdentifier: "ModelSelectionViewController") as? ModelSelectionViewController else {
-//            return
-//        }
-//        
-//        OR
-//        User this another one
-        let viewController = ModelSelectionViewController()
+        guard let viewController = StoryboardIdentifier.deviceManager.storyboard?.instantiateViewController(withIdentifier: "ModelSelectionViewController") as? ModelSelectionViewController else {
+            fatalError()
+        }
 
         let presenter = ModelSelectionPresenter()
         let router = ModelSelectionRouter()

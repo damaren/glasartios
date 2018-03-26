@@ -25,9 +25,25 @@ public class NewDevicesListInputInteractor {
 // MARK: - Input Interactor
 extension NewDevicesListInputInteractor : NewDevicesListInput {
     
-    public func get(something:String) {
+    public func getEquipments() {
         assertDependencies()
+        NSLog("Interactor - Buscando equipamentos")
         //Implement how to get data here
+        let list = mock()
+        output?.fetch(equipments:list)
+    }
+    
+    func mock() -> [Equipment] {
+        var equipments:[Equipment] = []
+        var a = Equipment()
+        a.name = "Equip1"
+        a.description = "Buffet1"
+        var b = Equipment()
+        b.name = "Equip2"
+        b.description = "Buffet2"
+        equipments.append(a)
+        equipments.append(b)
+        return equipments
     }
     
 }

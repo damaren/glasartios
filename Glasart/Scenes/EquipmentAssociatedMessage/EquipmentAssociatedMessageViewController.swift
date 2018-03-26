@@ -11,11 +11,16 @@ import UIKit
 public class EquipmentAssociatedMessageViewController: UIViewController {
 
     fileprivate var presenter : EquipmentAssociatedMessageModule?
+    @IBOutlet weak var equipmentNameLabel: UILabel!
+    @IBOutlet weak var equipmentDescLabel: UILabel!
+    @IBOutlet weak var equipmentImage: UIImageView!
+    
+    var equipment:Equipment?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         assertDependencies()
-    	setup()
+        presenter?.getEquipment()
 	}
 
     public override func didReceiveMemoryWarning() {
@@ -29,52 +34,38 @@ public class EquipmentAssociatedMessageViewController: UIViewController {
     fileprivate func assertDependencies() {
         assert(presenter != nil, "Did not set Presenter to the view")
     }
-
-	fileprivate func setup() {
-        startObservers()
-	}
     
-    deinit {
-        stopObservers()
+    @IBAction func confirmAssociation(_ sender: Any) {
+        print("confirmado")
+    }
+    
+    @IBAction func cancelAssociation(_ sender: Any) {
+        print("cancelado")
+    }
+    
+    func updateLabels() {
+        let text = "\(equipment?.info?.width ?? 0) x \(equipment?.info?.height ?? 0)"
+        equipmentNameLabel.text = text
+        let text2 = "POTÊNCIA \(equipment?.info?.power ?? 0) W"
+        equipmentDescLabel.text = text2
+    }
+    
+    func updateEquipment() {
+        let name = "vidro\(equipment?.info?.width ?? 0)"
+        let image = UIImage(named: name)
+        equipmentImage.image = image
     }
 }
 
 // MARK: - View Delegate
 extension EquipmentAssociatedMessageViewController : EquipmentAssociatedMessageView {
     public func show(something: String) {
-        //Implement what to show here
-    }
-}
-
-// MARK: - Configurations
-extension EquipmentAssociatedMessageViewController { 
-    func startObservers() {
-        let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(showKeyboard), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        nc.addObserver(self, selector: #selector(hideKeyboard), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        //aaaa
     }
     
-    func stopObservers() {
-        let nc = NotificationCenter.default
-        nc.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        nc.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    @objc func showKeyboard(notification:Notification) {
-        if let frame = notification.userInfo?["UIKeyboardBoundsUserInfoKey"] as? NSValue {
-            let finalFrame = frame.cgRectValue
-            let frameHeight = finalFrame.height
-            
-            // Implement keyboard show behavior here
-        }
-    }
-    
-    @objc func hideKeyboard(notification:Notification) {
-        if let frame = notification.userInfo?["UIKeyboardBoundsUserInfoKey"] as? NSValue {
-            let finalFrame = frame.cgRectValue
-            let frameHeight = finalFrame.height
-            
-            // Implement keyboard hide behavior here
-        }
+    public func show(equipment:Equipment?) {
+        self.equipment = equipment
+        updateLabels()
+        updateEquipment()
     }
 }

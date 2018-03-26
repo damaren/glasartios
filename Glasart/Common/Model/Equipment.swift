@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+public struct Equipment {
+    var name:String?
+    var description:String?
+    var info:EquipmentInfo?
+}

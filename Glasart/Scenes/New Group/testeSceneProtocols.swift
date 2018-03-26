@@ -12,7 +12,7 @@ import Foundation
 /// teste View Protocol
 ///
 public protocol testeView : class {
-    func show(something:String)
+    func show(number:Int)
     func hide()
 }
 
@@ -20,7 +20,7 @@ public protocol testeView : class {
 /// teste Presenter Protocol
 ///
 public protocol testeModule : class {
-    func doSomething()
+    func addNumber()
 }
 
 ///

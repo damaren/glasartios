@@ -13,8 +13,12 @@ public class EquipmentNamingPresenter {
     fileprivate weak var view   : EquipmentNamingView?
     fileprivate var interactor  : EquipmentNamingInput?
     fileprivate var router      : EquipmentNamingWireframe?
+    private var equipmentName:String = ""
+    var equipment:Equipment?
     
-    public init() {}
+    public init(equipment:Equipment?) {
+        self.equipment = equipment
+    }
     
     public func inject(view: EquipmentNamingView?, interactor:EquipmentNamingInput?, router:EquipmentNamingWireframe?) {
         self.view = view
@@ -32,6 +36,25 @@ public class EquipmentNamingPresenter {
 
 // MARK: - Presenter Delegates
 extension EquipmentNamingPresenter : EquipmentNamingModule {
+    public func registerName() {
+        if equipmentName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            // TODO: colocar mensagem de retorno
+            return
+        }
+        // TODO: colocar rota para prox tela
+        view?.showAssociatedEquipment()
+        print("OK")
+    }
+    
+    public func equipmentName(_ name: String) {
+        self.equipmentName = name
+        if name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            view?.isTextFieldHidden = true
+            return
+        }
+        view?.isTextFieldHidden = false
+    }
+    
     public func doSomething() {
         assertDependencies()
         //Implements presenter actions here

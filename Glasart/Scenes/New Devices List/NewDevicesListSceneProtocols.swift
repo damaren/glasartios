@@ -12,33 +12,36 @@ import Foundation
 /// NewDevicesList View Protocol
 ///
 public protocol NewDevicesListView : class {
-    func show(something:String)
+    func show(equipments:[Equipment])
 }
 
 ///
 /// NewDevicesList Presenter Protocol
 ///
 public protocol NewDevicesListModule : class {
-    func doSomething()
+    func getEquipments()
+    func gotoTeste()
+    func gotoModelSelection(to equipment:Equipment)
 }
 
 ///
 /// NewDevicesList Interactor Input Protocol
 ///
 public protocol NewDevicesListInput : class {
-    func get(something:String)
+    func getEquipments()
 }
 
 ///
 /// NewDevicesList Interactor Output Protocol
 ///
 public protocol NewDevicesListOutput : class {
-    func fetch(something:String)
+    func fetch(equipments:[Equipment])
 }
 
 ///
 /// NewDevicesList Router Protocol
 ///
 public protocol NewDevicesListWireframe : class {
-    func gotoSomeplace()
+    func gotoTeste()
+    func gotoModelSelection(to equipment:Equipment)
 }
